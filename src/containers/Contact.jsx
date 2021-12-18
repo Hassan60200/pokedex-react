@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PokemonDetails = () => {
+const Contact = () => {
     return (
         <div>
-            
+            contact
         </div>
     );
 };
 
-export default PokemonDetails;
+export default Contact;

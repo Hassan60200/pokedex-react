@@ -1,0 +1,8 @@
+.pokedex{
+    max-height: 40px;
+    max-width: 30%;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 8px;
+}

@@ -1,10 +1,22 @@
-import logo from './logo.svg';
+import Navbar from './components/Header/Navbar';
+import { Routes, Route } from "react-router-dom";
+import Pokemons from "./containers/Pokemons";
+import PokemonDetails from "./containers/PokemonDetails";
+import Contact from "./containers/Pokemons";
+
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Pokesearch</h1>
+     <Navbar />
+        <Routes>
+            <Route path="/" element={<Pokemons />} />
+            <Route path="/pokemon/:name" element={<PokemonDetails />} />
+            <Route path="about" element={<Contact />} />
+        </Routes>
+        <Pokemons />
     </div>
   );
 }
