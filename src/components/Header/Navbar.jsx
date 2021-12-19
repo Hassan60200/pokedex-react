@@ -3,6 +3,7 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import Pokedex from '../../assets/img/pokedex.png'
 
 import './Navbar.css';
+import {NavLink} from "react-router-dom";
 
 
 const Navbar = () => {
@@ -12,8 +13,9 @@ const Navbar = () => {
                 <Toolbar>
                     PokeSearch
                     <img src={Pokedex} className="pokedex" alt=""/>
+                    <NavLink className="link" to="/">Pokemons</NavLink>
+                    <NavLink className="link" to="/contact">Contact</NavLink>
                 </Toolbar>
-
             </AppBar>
         </header>
     );

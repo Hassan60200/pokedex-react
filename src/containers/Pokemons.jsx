@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import Cards from "../components/Card/Cards";
+import "../components/Card/card.css";
 
 const Pokemons = ({pokemon = []}) => {
-
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState({});
@@ -10,9 +11,11 @@ const Pokemons = ({pokemon = []}) => {
         try {
             const response = await fetch('https://pokeapi.co/api/v2/pokedex/2');
             const data = await response.json();
-            const pokemon = data['pokemon_entries'];
+            const pokemon = await data['pokemon_entries'];
+
             setData(pokemon);
             setLoading(false);
+
         } catch (err) {
             setError(true);
             throw err;
@@ -28,12 +31,21 @@ const Pokemons = ({pokemon = []}) => {
     }
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="center-on-page">
+            <div className="pokeball">
+                <div className="pokeball__button">
+
+                </div>
+            </div>
+        </div>;
     }
 
-    return <div>
-        {}
-        {data.map((pokemon) => <li>{pokemon['pokemon_species'].name}</li>)}
+    return <div className="cards">
+        {data.map((pokemon) =>
+            <Cards id={pokemon.entry_number} name={pokemon['pokemon_species'].name}>
+                <li className="card" key={pokemon.entry_number}>{pokemon['pokemon_species'].name}</li>
+            </Cards>
+        )}
     </div>;
 };
 

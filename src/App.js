@@ -16,7 +16,6 @@ function App() {
             <Route path="/pokemon/:name" element={<PokemonDetails />} />
             <Route path="about" element={<Contact />} />
         </Routes>
-        <Pokemons />
     </div>
   );
 }
