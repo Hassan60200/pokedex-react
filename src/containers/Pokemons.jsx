@@ -27,7 +27,7 @@ const Pokemons = ({pokemon = []}) => {
     }, []);
 
     if (error) {
-        return <div>ERROR</div>;
+        return <div>Aucun pokemon !!!</div>;
     }
 
     if (loading) {
@@ -46,6 +46,7 @@ const Pokemons = ({pokemon = []}) => {
                 <li className="card" key={pokemon.entry_number}>{pokemon['pokemon_species'].name}</li>
             </Cards>
         )}
+
     </div>;
 };
 

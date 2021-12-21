@@ -15,7 +15,7 @@ const Cards = ({name, children, id}) => {
                     {children}
                 </Typography>
                 <Link to={`/pokemon/${name}`}>
-                        Voir plus
+                    <img src="https://img.icons8.com/color/50/000000/pokeball-2.png"/>
                 </Link>
             </CardContent>
         </Card>

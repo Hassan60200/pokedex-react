@@ -1,11 +1,8 @@
-import React from 'react';
-
-const Form = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+const Form = ({ text, handleChange }) => (
+    <>
+        <input type="text" defaultValue={text} onChange={handleChange} />
+        <p>{text}</p>
+    </>
+);
 
 export default Form;
