@@ -42,8 +42,8 @@ const Pokemons = ({pokemon = []}) => {
 
     return <div className="cards">
         {data.map((pokemon) =>
-            <Cards id={pokemon.entry_number} name={pokemon['pokemon_species'].name}>
-                <li className="card" key={pokemon.entry_number}>{pokemon['pokemon_species'].name}</li>
+            <Cards id={pokemon.entry_number} key={pokemon.entry_number} name={pokemon['pokemon_species'].name}>
+
             </Cards>
         )}
 
