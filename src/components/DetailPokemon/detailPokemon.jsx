@@ -2,19 +2,47 @@ import React from 'react';
 import Card from "@material-ui/core/Card";
 
 const Pokemon = ({pokemon}) => {
-    return (
-        <div>
-            <h1 className="title">Profil de {pokemon.name}</h1>
-            <Card>
-                <img
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/${pokemon.id}.png`}
-                    alt={pokemon.name}
-                />
-            </Card>
 
-            <Card className="cards">
-                <h1>{pokemon.name}</h1>
-            </Card>
+    console.log(pokemon)
+
+    return (
+        <div className="details">
+            <h1 className="title">Profil de {pokemon.name}</h1>
+
+            <div>
+                <Card>
+                    <div>
+                        <h1>Pokemon n°{pokemon.id}</h1>
+                    </div>
+                    <div>
+                        <img
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+                            alt={pokemon.name}
+                        />
+                        <ul>
+                            <li>Taille: {pokemon.height / 10} m</li>
+                            <li>Poids:{pokemon.weight / 10} kg</li>
+                            <p>Talents: {pokemon.abilities.map((talent) =>
+                                <li key={talent.slot}>{talent.ability.name}</li>
+                            )}</p>
+                            <p>Types: {pokemon.types.map((type) =>
+                                <li key={type.slot}> {type.type.name} </li>
+                            )}</p>
+                            <p>Statistiques:
+                                {pokemon.stats.map((stat, index) =>
+                                    <li key={index}>{stat.stat.name} :{stat.base_stat}</li>
+                                )}
+                            </p>
+                            <p>Attaques:
+                                {pokemon.moves.slice(0, 10).map((move) =>
+                                    <li>{move.move.name}</li>
+                                )}
+                            </p>
+                        </ul>
+                    </div>
+
+                </Card>
+            </div>
         </div>
     );
 };

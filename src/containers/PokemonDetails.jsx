@@ -8,6 +8,7 @@ const PokemonDetails = () => {
     const {name} = useParams();
 
     const [pokemon, setPokemon] = useState({});
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
     const fetchData = async () => {
@@ -15,6 +16,7 @@ const PokemonDetails = () => {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
             const data = await response.json();
             setPokemon(data)
+            setLoading(false)
         } catch (err) {
             setError(true)
             throw err;
@@ -30,8 +32,18 @@ const PokemonDetails = () => {
         return <div>Aucun pokemon !!!</div>;
     }
 
+    if (loading) {
+        return <div className="center-on-page">
+            <div className="pokeball">
+                <div className="pokeball__button">
+
+                </div>
+            </div>
+        </div>;
+    }
+
     return (
-        <div className="cards">
+        <div className="card">
             <Pokemon pokemon={pokemon}>
 
             </Pokemon>
