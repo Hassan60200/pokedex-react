@@ -1,8 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Cards from "../components/Card/Cards";
 import "../components/Card/card.css";
 
+import Form from "../components/Form";
+import MainContext from "../contexts/MainContext";
+import {Link} from "react-router-dom";
+
+
 const Pokemons = ({pokemon = []}) => {
+
+    const { handleChange, text } = useContext(MainContext);
+
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState({});
@@ -27,7 +35,14 @@ const Pokemons = ({pokemon = []}) => {
     }, []);
 
     if (error) {
-        return <div>Aucun pokemon !!!</div>;
+        return <div style={{margin: '100px'}}>
+            <div>ERROR 404 !!!!!!!!!!</div>
+            <div style={{margin: '50px'}}>
+                <Link to={`/`}>
+                    <button>Revenez à la page d'accueil</button>
+                </Link>
+            </div>
+        </div>
     }
 
     if (loading) {
@@ -40,14 +55,19 @@ const Pokemons = ({pokemon = []}) => {
         </div>;
     }
 
-    return <div className="cards">
-        {data.map((pokemon) =>
-            <Cards id={pokemon.entry_number} key={pokemon.entry_number} name={pokemon['pokemon_species'].name}>
+    return <>
+        <div style={{margin: '100px'}}>
+            <Form text={text} handleChange={handleChange}></Form>
+        </div>
+        <div className="cards">
+            {data.map((pokemon) =>
+                <Cards id={pokemon.entry_number} key={pokemon.entry_number} name={pokemon['pokemon_species'].name}>
 
-            </Cards>
-        )}
+                </Cards>
+            )}
 
-    </div>;
+        </div>
+    </>;
 };
 
 export default Pokemons;

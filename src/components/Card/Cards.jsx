@@ -12,8 +12,8 @@ const Cards = ({name, id}) => {
                alt={name}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                    {name}
+                <Typography gutterBottom variant="h5" component="h2" style={{textTransform: 'capitalize'}}>
+                  N°{id}  {name}
                 </Typography>
                 <Link to={`/pokemon/${name}`}>
                     <img src="https://img.icons8.com/color/50/000000/pokeball-2.png"/>

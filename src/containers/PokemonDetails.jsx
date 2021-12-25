@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Pokemon from "../components/DetailPokemon/detailPokemon";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import '../components/DetailPokemon/detailPokemon.css';
 
 const PokemonDetails = () => {
@@ -29,7 +29,14 @@ const PokemonDetails = () => {
     }, []);
 
     if (error) {
-        return <div>Aucun pokemon !!!</div>;
+        return <div style={{margin: '100px'}}>
+            <div>Aucun pokemon !!!</div>
+            <div style={{margin: '50px'}}>
+                <Link to={`/`}>
+                    <button>Revenez à la page d'accueil</button>
+                </Link>
+            </div>
+        </div>;
     }
 
     if (loading) {

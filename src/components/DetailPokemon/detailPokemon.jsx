@@ -25,16 +25,22 @@ const Pokemon = ({pokemon}) => {
                             <p>Talents: {pokemon.abilities.map((talent) =>
                                 <li key={talent.slot}>{talent.ability.name}</li>
                             )}</p>
-                            <p>Types: {pokemon.types.map((type) =>
-                                <li key={type.slot}> {type.type.name} </li>
-                            )}</p>
+                            <p>Types:{pokemon.types.map(t => (
+                                <li key={t.type.name}>
+                                    <div className={`${t.type.name} badge badge-pill mr-1 rounded px-4 py-1`}
+                                         style={{color: 'white'}}>
+                                        {t.type.name.toUpperCase()}
+                                    </div>
+                                </li>
+                            ))}
+                            </p>
                             <p>Statistiques:
                                 {pokemon.stats.map((stat, index) =>
                                     <li key={index}>{stat.stat.name} :{stat.base_stat}</li>
                                 )}
                             </p>
                             <p>Attaques:
-                                {pokemon.moves.slice(0, 10).map((move) =>
+                                {pokemon.moves.slice(0, 3).map((move) =>
                                     <li>{move.move.name}</li>
                                 )}
                             </p>

@@ -11,3 +11,67 @@
     padding: 0;
     list-style-type: none;
 }
+
+/* Extra Background Colors */
+.grass {
+    background-color: rgb(38, 235, 90);
+}
+
+.fire {
+    background-color: rgb(235, 71, 38);
+}
+
+.water {
+    background-color: rgb(38, 186, 235);
+}
+
+.electric {
+    background-color: rgb(235, 209, 38);
+}
+
+.ice {
+    background-color: rgb(38, 219, 235);
+}
+
+.fighting {
+    background-color: rgb(235, 104, 38);
+}
+
+.poison {
+    background-color: rgb(176, 38, 235);
+}
+.ground {
+    background-color: rgb(181, 131, 92);
+}
+
+.flying {
+    background-color: #6E99E4;
+}
+
+.psychic {
+    background-color: rgb(219, 77, 207);
+}
+
+.ghost {
+    background-color: rgb(131, 24, 133);
+}
+
+.bug {
+    background-color: rgb(113, 209, 10);
+}
+
+.rock {
+    background-color: rgb(166, 87, 8);
+}
+
+.dragon {
+    background-color: rgb(50, 24, 217);
+}
+
+.normal {
+    background-color: rgb(168, 162, 157);
+}
+
+.fairy {
+    background-color: rgb(255, 148, 191);
+}
