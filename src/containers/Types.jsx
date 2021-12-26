@@ -47,7 +47,7 @@ const Types = () => {
     }
 
     return (
-        <div>
+        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', margin: '100px', gap: '2em'}}>
             {types.map((type, index) =>
                 <TypesPokemon key={index} id={index + 1} name={type.name}>
                     {type.name}

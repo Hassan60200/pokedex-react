@@ -11,20 +11,33 @@ const Pokemons = ({pokemon = []}) => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState({});
+    const [search, setSearch] = useState(data);
+    const [text, setText] = useState("");
 
     const fetchData = async () => {
         try {
             const response = await fetch('https://pokeapi.co/api/v2/pokedex/2');
             const data = await response.json();
             const pokemon = await data['pokemon_entries'];
-
             setData(pokemon);
+            setSearch(pokemon)
             setLoading(false);
 
         } catch (err) {
             setError(true);
             throw err;
         }
+    };
+
+    const handleSearch = (e) => {
+        const value = e.target.value;
+
+        setText(value)
+        setSearch(
+            data.filter((pokemon) =>
+                pokemon.pokemon_species.name.toLowerCase().includes(value.toLowerCase())
+            )
+        );
     };
 
     useEffect(() => {
@@ -54,17 +67,17 @@ const Pokemons = ({pokemon = []}) => {
 
     return <>
         <div style={{margin: '100px'}}>
-            <Form>
+            <Form text={text} handleChange={handleSearch}>
 
             </Form>
         </div>
+
         <div className="cards">
-            {data.map((pokemon) =>
-                <Cards id={pokemon.entry_number} key={pokemon.entry_number} name={pokemon['pokemon_species'].name}>
+            {search.map((pokemon) =>
+                <Cards id={pokemon.entry_number} key={pokemon.entry_number} name={pokemon.pokemon_species.name}>
 
                 </Cards>
             )}
-
         </div>
     </>;
 };

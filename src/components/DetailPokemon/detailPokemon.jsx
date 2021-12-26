@@ -3,8 +3,6 @@ import Card from "@material-ui/core/Card";
 
 const Pokemon = ({pokemon}) => {
 
-    console.log(pokemon)
-
     return (
         <div className="details">
             <h1 className="title">Profil de {pokemon.name}</h1>
