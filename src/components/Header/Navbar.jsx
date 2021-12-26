@@ -14,6 +14,7 @@ const Navbar = () => {
                     PokeSearch
                     <img src={Pokedex} className="pokedex" alt=""/>
                     <NavLink className="link" to="/">Pokemons</NavLink>
+                    <NavLink className="link" to="/types">Types</NavLink>
                     <NavLink className="link" to="/contact">Contact</NavLink>
                 </Toolbar>
             </AppBar>

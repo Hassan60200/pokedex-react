@@ -1,24 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import Cards from "../components/Card/Cards";
-import "../components/Card/card.css";
-
-import Form from "../components/Form";
 import {Link} from "react-router-dom";
-
-
-const Pokemons = ({pokemon = []}) => {
+import TypesPokemon from "../components/Types/TypesPokemon";
+const Types = () => {
 
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState({});
+    const [types, setTypes] = useState({});
 
-    const fetchData = async () => {
+    const fetchTypes = async () => {
         try {
-            const response = await fetch('https://pokeapi.co/api/v2/pokedex/2');
+            const response = await fetch('https://pokeapi.co/api/v2/type');
             const data = await response.json();
-            const pokemon = await data['pokemon_entries'];
 
-            setData(pokemon);
+            setTypes(data.results);
             setLoading(false);
 
         } catch (err) {
@@ -28,7 +22,7 @@ const Pokemons = ({pokemon = []}) => {
     };
 
     useEffect(() => {
-        fetchData();
+        fetchTypes();
     }, []);
 
     if (error) {
@@ -52,21 +46,16 @@ const Pokemons = ({pokemon = []}) => {
         </div>;
     }
 
-    return <>
-        <div style={{margin: '100px'}}>
-            <Form>
-
-            </Form>
-        </div>
-        <div className="cards">
-            {data.map((pokemon) =>
-                <Cards id={pokemon.entry_number} key={pokemon.entry_number} name={pokemon['pokemon_species'].name}>
-
-                </Cards>
+    return (
+        <div>
+            {types.map((type, index) =>
+                <TypesPokemon key={index} id={index + 1} name={type.name}>
+                    {type.name}
+                </TypesPokemon>
             )}
 
         </div>
-    </>;
+    );
 };
 
-export default Pokemons;
+export default Types;

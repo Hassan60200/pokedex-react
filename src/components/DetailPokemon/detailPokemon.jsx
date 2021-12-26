@@ -27,10 +27,10 @@ const Pokemon = ({pokemon}) => {
                             )}</p>
                             <p>Types:{pokemon.types.map(t => (
                                 <li key={t.type.name}>
-                                    <div className={`${t.type.name} badge badge-pill mr-1 rounded px-4 py-1`}
+                                    <span className={`${t.type.name} badge badge-pill mr-1 rounded px-4 py-1`}
                                          style={{color: 'white'}}>
                                         {t.type.name.toUpperCase()}
-                                    </div>
+                                    </span>
                                 </li>
                             ))}
                             </p>
@@ -40,8 +40,8 @@ const Pokemon = ({pokemon}) => {
                                 )}
                             </p>
                             <p>Attaques:
-                                {pokemon.moves.slice(0, 3).map((move) =>
-                                    <li>{move.move.name}</li>
+                                {pokemon.moves.slice(0, 3).map((move, index) =>
+                                    <li key={index}>{move.move.name}</li>
                                 )}
                             </p>
                         </ul>
