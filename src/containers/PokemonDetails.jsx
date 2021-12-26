@@ -26,6 +26,7 @@ const PokemonDetails = () => {
 
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line
     }, []);
 
     if (error) {

@@ -16,7 +16,7 @@ const Cards = ({name, id}) => {
                   N°{id}  {name}
                 </Typography>
                 <Link to={`/pokemon/${name}`}>
-                    <img src="https://img.icons8.com/color/50/000000/pokeball-2.png"/>
+                    <img src="https://img.icons8.com/color/50/000000/pokeball-2.png" alt="lien vers le pokemon"/>
                 </Link>
             </CardContent>
         </Card>

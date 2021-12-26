@@ -5,8 +5,8 @@ const TypesPokemon = ({name, id}) => {
 
     return (
         <div>
-            <button id={id}>
-                <Link to={`/type/${name}`} id={id}>
+            <button className={`${name}`}   id={id}>
+                <Link style={{textDecoration: 'none', textTransform: 'capitalize', color: 'white'}} to={`/type/${name}`} id={id}>
                     {name}
                 </Link>
             </button>

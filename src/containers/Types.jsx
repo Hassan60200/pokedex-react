@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import TypesPokemon from "../components/Types/TypesPokemon";
+
 const Types = () => {
 
     const [error, setError] = useState(false);
@@ -47,13 +48,22 @@ const Types = () => {
     }
 
     return (
-        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', margin: '100px', gap: '2em'}}>
-            {types.map((type, index) =>
-                <TypesPokemon key={index} id={index + 1} name={type.name}>
-                    {type.name}
-                </TypesPokemon>
-            )}
-
+        <div>
+            <h1 style={{margin: '100px'}}>Table des types</h1>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                margin: '100px',
+                gap: '2em'
+            }}>
+                {types.map((type, index) =>
+                    <TypesPokemon key={index} id={index + 1} name={type.name}>
+                        {type.name}
+                    </TypesPokemon>
+                )}
+            </div>
         </div>
     );
 };

@@ -34,7 +34,7 @@
 }
 
 .fighting {
-    background-color: rgb(235, 104, 38);
+    background-color: #B26950;
 }
 
 .poison {
@@ -69,9 +69,17 @@
 }
 
 .normal {
-    background-color: rgb(168, 162, 157);
+    background-color: #A7A89F
 }
 
 .fairy {
     background-color: rgb(255, 148, 191);
+}
+
+.dark{
+    background-color: rgb(14, 13, 13);;
+}
+
+.steel{
+    background-color: #ACADBB;
 }
