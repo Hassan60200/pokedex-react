@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Card from "@material-ui/core/Card";
 import {Radar} from 'react-chartjs-2';
 import {
@@ -52,9 +52,6 @@ Chart.register(ArcElement,
     Tooltip);
 const Pokemon = ({pokemon}) => {
 
-
-    const [favs, setFavs] = useState(false);
-
     const value = [...pokemon.stats];
 
     const data = {
@@ -85,23 +82,15 @@ const Pokemon = ({pokemon}) => {
     function clearCache() {
         const pokemons = JSON.parse(localStorage.getItem('pokemons'));
 
-        const newFavs = pokemons.filter((test) =>{
+        const newFavs = pokemons.filter((fav) =>{
 
-            if ( test.id !== pokemon.id){
-                return test
+            if ( fav.id !== pokemon.id){
+                return fav
             }
         })
-        console.log(newFavs)
         localStorage.setItem("pokemons", JSON.stringify(newFavs));
-       /*const result = pokemons.filter((pokemon) =>{
-                return pokemon.id
-        })
-        localStorage.setItem("pokemons", JSON.stringify(result));*/
     }
 
-    useEffect( () => {
-        setFavs(true)
-    }, [])
 
     return (
         <div className="details">
