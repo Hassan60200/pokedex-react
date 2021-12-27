@@ -69,7 +69,8 @@ const Pokemon = ({pokemon}) => {
     }
 
     const handleFavsPokemon = () => {
-        localStorage.setItem('pokemon',)
+        localStorage.setItem('name', pokemon.name);
+        localStorage.setItem('id', pokemon.id);
     }
 
     return (
