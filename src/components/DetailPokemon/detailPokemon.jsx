@@ -52,6 +52,7 @@ Chart.register(ArcElement,
     Tooltip);
 const Pokemon = ({pokemon}) => {
 
+
     const [favs, setFavs] = useState(false);
 
     const value = [...pokemon.stats];
@@ -69,14 +70,33 @@ const Pokemon = ({pokemon}) => {
         ]
     }
 
+    const pokemons = JSON.parse(localStorage.getItem('pokemons'));
+
     const handleFavsPokemon = () => {
-        localStorage.setItem('name', pokemon.name);
-        localStorage.setItem('id', pokemon.id);
+        let fav = [];
+        if (pokemons != null || pokemons != undefined){
+            fav = pokemons;
+        }
+        fav.push({id: pokemon.id, name: pokemon.name})
+
+        localStorage.setItem('pokemons', JSON.stringify(fav));
     }
 
     function clearCache() {
-        localStorage.removeItem("name");
-        localStorage.removeItem("id");
+        const pokemons = JSON.parse(localStorage.getItem('pokemons'));
+
+        const newFavs = pokemons.filter((test) =>{
+
+            if ( test.id !== pokemon.id){
+                return test
+            }
+        })
+        console.log(newFavs)
+        localStorage.setItem("pokemons", JSON.stringify(newFavs));
+       /*const result = pokemons.filter((pokemon) =>{
+                return pokemon.id
+        })
+        localStorage.setItem("pokemons", JSON.stringify(result));*/
     }
 
     useEffect( () => {

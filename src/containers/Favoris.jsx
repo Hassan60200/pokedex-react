@@ -4,29 +4,9 @@ import {Link} from "react-router-dom";
 
 const Favoris = () => {
 
-    const [error, setError] = useState(false);
-    const [name, setName] = useState('');
-    const [id, setId] = useState('');
+    const favs = JSON.parse(localStorage.getItem('pokemons'));
 
-
-    const fetchFavs = async () => {
-        try {
-
-            const name =localStorage.getItem('name');
-            const id =localStorage.getItem('id');
-            setName(name)
-            setId(id)
-        } catch (err) {
-            setError(true)
-            throw err;
-        }
-    };
-
-    useEffect(() =>{
-        fetchFavs()
-    }, [])
-
-    if (!id && !name) {
+    if (!favs) {
         return <div style={{margin: '100px'}}>
             <div>Aucun pokemon favoris!!!</div>
             <div style={{margin: '50px'}}>
@@ -39,8 +19,11 @@ const Favoris = () => {
 
     return (
         <div style={{margin: '100px'}}>
-            <Cards name={name} id={id}>
-            </Cards>
+            {favs.map((fav) =>
+                <Cards key={fav.id} id={fav.id} name={fav.name}>
+                </Cards>
+                )}
+
         </div>
     );
 };
