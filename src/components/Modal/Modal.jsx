@@ -27,6 +27,7 @@ const ModalForm = () => {
 
         emailjs.sendForm('service_12n656s', 'template_178xquj', form.current, 'user_TcPoFZpCQsFOdtX0DL6v4')
             .then((result) => {
+                alert("Votre message a bien été envoyer !!!");
                 console.log(result.text);
             }, (error) => {
                 console.log(error.text);
@@ -49,12 +50,12 @@ const ModalForm = () => {
                         <Box sx={style}>
                             <form onSubmit={sendEmail} ref={form}>
                                 <label>Name</label>
-                                <input type="text" name="name" />
+                                <input className="form-control" type="text" name="name" />
                                 <label>Email</label>
-                                <input type="email" name="email" />
+                                <input className="form-control" type="email" name="email" />
                                 <label>Message</label>
-                                <textarea name="message" />
-                                <input type="submit" value="Envoyer" />
+                                <textarea className="form-control" name="message" />
+                                <input className="btn btn-outline-success mt-2" type="submit" value="Envoyer" />
                             </form>
                         </Box>
                     </Modal>

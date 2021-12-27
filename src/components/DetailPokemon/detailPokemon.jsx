@@ -87,10 +87,7 @@ const Pokemon = ({pokemon}) => {
                                 <button onClick={handleFavsPokemon}>Ajouter en favoris</button>
                             </div>
                         </div>
-                        {/*<div style={{height: '300px', width: '400px'}}>
-                            <Radar data={data} type="radar"/>
-                        </div>*/}
-                        <div className="col-3 m-5" style={{border: '1px solid black', backgroundColor: 'grey', color: 'white'}}>
+                        <div className="col-4 m-5" style={{border: '1px solid black', backgroundColor: 'grey', color: 'white'}}>
                             <div className="row">
                                 <div className="col-6 mt-3">
                                     <span>Taille {pokemon.height / 10} m</span><br/>
@@ -122,6 +119,9 @@ const Pokemon = ({pokemon}) => {
                                 </span>
                                 </div>
                             </div>
+                        </div>
+                        <div className="col-6 offset-3">
+                            <Radar data={data} type="radar"/>
                         </div>
                     </div>
 
