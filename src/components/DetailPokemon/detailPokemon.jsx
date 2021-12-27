@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Card from "@material-ui/core/Card";
 import {Radar} from 'react-chartjs-2';
 import {
@@ -73,6 +73,15 @@ const Pokemon = ({pokemon}) => {
         localStorage.setItem('id', pokemon.id);
     }
 
+    function clearCache() {
+        localStorage.removeItem("name");
+        localStorage.removeItem("id");
+    }
+
+    useEffect( () => {
+        setFavs(true)
+    }, [])
+
     return (
         <div className="details">
             <h1 className="title">Profil de {pokemon.name} n°{pokemon.id}</h1>
@@ -86,6 +95,7 @@ const Pokemon = ({pokemon}) => {
                             />
                             <div>
                                 <button onClick={handleFavsPokemon}>Ajouter en favoris</button>
+                                <button onClick={clearCache}>Supprimer des favoris</button>
                             </div>
                         </div>
                         <div className="col-4 m-5" style={{border: '1px solid black', backgroundColor: 'grey', color: 'white'}}>
