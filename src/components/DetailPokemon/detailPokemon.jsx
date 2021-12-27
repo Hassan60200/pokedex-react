@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from "@material-ui/core/Card";
 import {Radar} from 'react-chartjs-2';
 import {
@@ -51,6 +51,8 @@ Chart.register(ArcElement,
     Title,
     Tooltip);
 const Pokemon = ({pokemon}) => {
+    console.log(pokemon)
+    const [favs, setFavs] = useState(false);
 
     const value = [...pokemon.stats];
 
@@ -66,42 +68,61 @@ const Pokemon = ({pokemon}) => {
         ]
     }
 
+    const handleFavsPokemon = () => {
+        localStorage.setItem('pokemon',)
+    }
+
     return (
         <div className="details">
-            <h1 className="title">Profil de {pokemon.name}</h1>
-
+            <h1 className="title">Profil de {pokemon.name} n°{pokemon.id}</h1>
             <div>
                 <Card>
-                    <div>
-                        <h1>Pokemon n°{pokemon.id}</h1>
-                    </div>
-                    <div>
-                        <img
-                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-                            alt={pokemon.name}
-                        />
-                        <Radar data={data} type="radar"/>
-                        <ul>
-                            <li>Taille: {pokemon.height / 10} m</li>
-                            <li>Poids:{pokemon.weight / 10} kg</li>
-                            <p>Talents: {pokemon.abilities.map((talent) =>
-                                <li key={talent.slot}>{talent.ability.name}</li>
-                            )}</p>
-                            <p>Types:{pokemon.types.map(t => (
-                                <li key={t.type.name}>
+                    <div className="row">
+                        <div className="col-6">
+                            <img
+                                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+                                alt={pokemon.name}
+                            />
+                            <div>
+                                <button onClick={handleFavsPokemon}>Ajouter en favoris</button>
+                            </div>
+                        </div>
+                        {/*<div style={{height: '300px', width: '400px'}}>
+                            <Radar data={data} type="radar"/>
+                        </div>*/}
+                        <div className="col-3 m-5" style={{border: '1px solid black', backgroundColor: 'grey', color: 'white'}}>
+                            <div className="row">
+                                <div className="col-6 mt-3">
+                                    <span>Taille {pokemon.height / 10} m</span><br/>
+                                    <span>Poids {pokemon.weight / 10} kg</span>
+                                </div>
+                                <div className="col-6 mt-3 ">
+                                <span>Talents: {pokemon.abilities.map((talent) =>
+                                    <li style={{fontWeight: 'bold', color: 'black'}} key={talent.slot}>{talent.ability.name}</li>
+                                )}</span>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-5 mt-3">
+                                       <span>Types{pokemon.types.map(t => (
+                                           <li key={t.type.name}>
                                     <span className={`${t.type.name} badge badge-pill mr-1 rounded px-4 py-1`}
                                           style={{color: 'white'}}>
                                         {t.type.name.toUpperCase()}
                                     </span>
-                                </li>
-                            ))}
-                            </p>
-                            <p>Attaques:
-                                {pokemon.moves.slice(0, 3).map((move, index) =>
-                                    <li key={index}>{move.move.name}</li>
-                                )}
-                            </p>
-                        </ul>
+                                           </li>
+                                       ))}
+                            </span>
+                                </div>
+                                <div className="col-7 mt-3">
+                                <span>Attaques
+                                    {pokemon.moves.slice(0, 3).map((move, index) =>
+                                        <li style={{fontWeight: 'bold', color:'black'}} key={index}>{move.move.name}</li>
+                                    )}
+                                </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </Card>

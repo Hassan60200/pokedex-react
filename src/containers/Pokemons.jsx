@@ -40,8 +40,10 @@ const Pokemons = ({pokemon = []}) => {
         );
     };
 
+
     useEffect(() => {
         fetchData();
+
     }, []);
 
     if (error) {

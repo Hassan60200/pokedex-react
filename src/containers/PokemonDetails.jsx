@@ -23,7 +23,6 @@ const PokemonDetails = () => {
         }
     };
 
-
     useEffect(() => {
         fetchData();
         // eslint-disable-next-line
@@ -51,10 +50,11 @@ const PokemonDetails = () => {
     }
 
     return (
-        <div className="card">
-            <Pokemon pokemon={pokemon}>
-
-            </Pokemon>
+        <div>
+            <div className="card">
+                <Pokemon pokemon={pokemon}>
+                </Pokemon>
+            </div>
         </div>
     );
 

@@ -51,8 +51,7 @@ const TypesPokemon = () => {
 
     return (
         <div>
-            <h1 style={{margin: '100px'}}>Voici tous les pokemons de types {name}</h1>
-            <span>Pokemons: ({pokemons.length})</span>
+            <h1 style={{margin: '100px'}}>Voici tous les {pokemons.length} pokemons de types {name}</h1>
             <div className="cardsType">
                 {pokemons.map((pokemon) =>
                     <DetailsTypes id={parseInt(pokemon.pokemon.url.substring(34))} key={pokemon.pokemon.url.substring(34)} name={pokemon.pokemon.name}>

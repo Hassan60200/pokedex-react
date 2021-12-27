@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import Pokemons from "./containers/Pokemons";
 import PokemonDetails from "./containers/PokemonDetails";
 import Types from "./containers/Types";
-import Contact from "./containers/Pokemons";
 import TypesPokemon from "./containers/TypesPokemon";
 import Favoris from "./containers/Favoris";
+import Contact from "./containers/Contact";
 
 import './App.css';
 

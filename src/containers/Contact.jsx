@@ -1,9 +1,13 @@
 import React from 'react';
+import Modal from '../components/Modal/Modal'
 
 const Contact = () => {
     return (
         <div>
-            contact
+            <Modal>
+
+
+            </Modal>
         </div>
     );
 };
