@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Box, Button, Typography, Modal} from "@material-ui/core";
+import {Box, Button, Modal} from "@material-ui/core";
 import emailjs from 'emailjs-com';
 
 const style = {

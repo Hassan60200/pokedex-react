@@ -51,7 +51,7 @@ Chart.register(ArcElement,
     Title,
     Tooltip);
 const Pokemon = ({pokemon}) => {
-    console.log(pokemon)
+
     const [favs, setFavs] = useState(false);
 
     const value = [...pokemon.stats];
@@ -60,6 +60,7 @@ const Pokemon = ({pokemon}) => {
         labels: [value[0].stat.name, value[1].stat.name, value[2].stat.name, value[3].stat.name, value[4].stat.name, value[5].stat.name],
         datasets: [
             {
+                label: 'Statistiques',
                 data: [value[0].base_stat, value[1].base_stat, value[2].base_stat, value[3].base_stat, value[4].base_stat, value[5].base_stat],
                 backgroundColor: [
                     '#de0021',

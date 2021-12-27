@@ -11,6 +11,7 @@ const Favoris = () => {
 
     const fetchFavs = async () => {
         try {
+
             const name =localStorage.getItem('name');
             const id =localStorage.getItem('id');
             setName(name)
